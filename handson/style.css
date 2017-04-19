@@ -1,0 +1,134 @@
+html {
+    background: #000 no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  }
+
+.remoteVideosContainer {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    top: 0; }
+
+.myVideosContainer {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 0;
+    top: 50%; }
+
+.myControllerContainer {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    padding-left: 20px;
+    color: white}
+
+#my-id {
+    font-weight: bold;
+}
+
+.select {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+form {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#end-call {
+    display: none;
+}
+
+input[type=text]{
+    border-radius: 5px;
+    border:#a9a9a9 1px solid;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
+    width:40%;
+    font-size: 15px;
+    padding: 5px;
+}
+
+input[type=text]:focus {
+    border:solid 1px #20b2aa;
+}
+
+input[type=text], select {
+    outline: none;
+}
+
+button {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 20px;
+    color: #fff;
+    border-style: none;
+    text-shadow: 1px 1px 2px #000;
+    background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));
+    border-radius: 5px;
+}
+
+button:hover {
+    /* 透明度を20%に指定 */
+    opacity: 0.8;
+}
+
+video {
+    background: black;
+    float: left;
+}
+
+.remoteVideosContainer video {
+    height: 100%;
+}
+
+.myVideosContainer video {
+    width: 100%;
+    object-fit: cover;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(1),
+.remoteVideosContainer video:first-child:nth-last-child(1) ~ video {
+    width: 100%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(2),
+.remoteVideosContainer video:first-child:nth-last-child(2) ~ video {
+    width: 50%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(3),
+.remoteVideosContainer video:first-child:nth-last-child(3) ~ video {
+    width: 33.33333%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(4),
+.remoteVideosContainer video:first-child:nth-last-child(4) ~ video {
+    width: 25%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(5),
+.remoteVideosContainer video:first-child:nth-last-child(5) ~ video {
+    width: 20%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(6),
+.remoteVideosContainer video:first-child:nth-last-child(6) ~ video {
+    width: 16.66667%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(7),
+.remoteVideosContainer video:first-child:nth-last-child(7) ~ video {
+    width: 14.28571%;
+}
+
+.remoteVideosContainer video:first-child:nth-last-child(8),
+.remoteVideosContainer video:first-child:nth-last-child(8) ~ video {
+    width: 12.5%;
+}
