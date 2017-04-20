@@ -64,7 +64,6 @@ $(function(){
             $('#downloadlink').hide();
         }else if(remoteStream){
             let chunks = [];
-            const anchor = document.getElementById('downloadlink');
 
             recorder = new MediaRecorder(remoteStream);
 
@@ -76,13 +75,11 @@ $(function(){
             recorder.onstop = function(evt) {
                 console.log('recorder.onstop(), so playback');
                 recorder = null;
-
                 const videoBlob = new Blob(chunks, { type: "video/webm" });
                 blobUrl = window.URL.createObjectURL(videoBlob);
-                anchor.download = 'recorded.webm';
-                anchor.href = blobUrl;
+                $('#downloadlink').attr("download", 'recorded.webm');
+                $('#downloadlink').attr("href", blobUrl);
                 $('#downloadlink').show();
-
             };
             recorder.start(1000);
             console.log('start recording');
