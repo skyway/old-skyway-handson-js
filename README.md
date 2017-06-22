@@ -1,6 +1,6 @@
 # はじめに
 
-このリポジトリはSkyWayハンズオン]()のための教材です。
+このリポジトリは[WebRTC Platform SkyWay ハンズオン SFU編](http://qiita.com/yusuke84/items/54dce88f9e896903e64f)のための教材です。
 詳しい内容は上記ドキュメントを御覧ください。
 
 # 教材の対象者
