@@ -21,7 +21,7 @@ $(function(){
         });
 
     peer = new Peer({
-        key: 'APIKEY',
+        key: '45c6a299-4a74-4d50-9eb3-173637ea9767',
         debug: 3
     });
 
@@ -75,7 +75,7 @@ $(function(){
         const videoDom = $('<video autoplay>');
         videoDom.attr('id',stream.peerId);
         videoDom.get(0).srcObject = stream;
-        $('.remoteVideosContainer').append(videoDom);
+        $('.videosContainer').append(videoDom);
     }
 
     function removeVideo(peerId){
@@ -83,7 +83,7 @@ $(function(){
     }
 
     function removeAllRemoteVideos(){
-        $('.remoteVideosContainer').empty();
+        $('.videosContainer').empty();
     }
 
     function setupMakeCallUI(){

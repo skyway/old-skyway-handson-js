@@ -151,7 +151,7 @@ $(function(){
         const videoDom = $('<video autoplay>');
         videoDom.attr('id',stream.peerId);
         videoDom.get(0).srcObject = stream;
-        $('.remoteVideosContainer').append(videoDom);
+        $('.videosContainer').append(videoDom);
     }
 
     function removeVideo(peerId){
@@ -159,7 +159,7 @@ $(function(){
     }
 
     function removeAllRemoteVideos(){
-        $('.remoteVideosContainer').empty();
+        $('.videosContainer').empty();
     }
 
     function setupMakeCallUI(){

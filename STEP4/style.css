@@ -5,25 +5,17 @@ html {
     -o-background-size: cover;
     background-size: cover;  }
 
-.remoteVideosContainer {
+.videosContainer {
     position: absolute;
     width: 100%;
     height: 50%;
     left: 0;
     top: 0; }
 
-.myVideosContainer {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    left: 0;
-    top: 50%; }
-
 .myControllerContainer {
     position: absolute;
     width: 50%;
     height: 50%;
-    left: 50%;
     top: 50%;
     padding-left: 20px;
     color: white}
@@ -97,51 +89,46 @@ video {
     float: left;
 }
 
-.remoteVideosContainer video {
+.videosContainer video {
     height: 100%;
 }
 
-.myVideosContainer video {
-    width: 100%;
-    object-fit: cover;
-}
-
-.remoteVideosContainer video:first-child:nth-last-child(1),
-.remoteVideosContainer video:first-child:nth-last-child(1) ~ video {
+.videosContainer video:first-child:nth-last-child(1),
+.videosContainer video:first-child:nth-last-child(1) ~ video {
     width: 100%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(2),
-.remoteVideosContainer video:first-child:nth-last-child(2) ~ video {
+.videosContainer video:first-child:nth-last-child(2),
+.videosContainer video:first-child:nth-last-child(2) ~ video {
     width: 50%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(3),
-.remoteVideosContainer video:first-child:nth-last-child(3) ~ video {
+.videosContainer video:first-child:nth-last-child(3),
+.videosContainer video:first-child:nth-last-child(3) ~ video {
     width: 33.33333%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(4),
-.remoteVideosContainer video:first-child:nth-last-child(4) ~ video {
+.videosContainer video:first-child:nth-last-child(4),
+.videosContainer video:first-child:nth-last-child(4) ~ video {
     width: 25%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(5),
-.remoteVideosContainer video:first-child:nth-last-child(5) ~ video {
+.videosContainer video:first-child:nth-last-child(5),
+.videosContainer video:first-child:nth-last-child(5) ~ video {
     width: 20%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(6),
-.remoteVideosContainer video:first-child:nth-last-child(6) ~ video {
+.videosContainer video:first-child:nth-last-child(6),
+.videosContainer video:first-child:nth-last-child(6) ~ video {
     width: 16.66667%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(7),
-.remoteVideosContainer video:first-child:nth-last-child(7) ~ video {
+.videosContainer video:first-child:nth-last-child(7),
+.videosContainer video:first-child:nth-last-child(7) ~ video {
     width: 14.28571%;
 }
 
-.remoteVideosContainer video:first-child:nth-last-child(8),
-.remoteVideosContainer video:first-child:nth-last-child(8) ~ video {
+.videosContainer video:first-child:nth-last-child(8),
+.videosContainer video:first-child:nth-last-child(8) ~ video {
     width: 12.5%;
 }
