@@ -8,8 +8,14 @@ $(function(){
         video: {},
         audio: true
     };
-    constraints.video.width = 320;
-    constraints.video.height = 240;
+    constraints.video.width = {
+        min: 320,
+        max: 320
+    };
+    constraints.video.height = {
+        min: 240,
+        max: 240        
+    };
 
     navigator.mediaDevices.getUserMedia(constraints)
         .then(function (stream) {
