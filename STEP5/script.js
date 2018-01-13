@@ -66,7 +66,7 @@ $(function(){
             let chunks = [];
             let options = {
                 mimeType : 'video/webm; codecs=vp9'
-              };
+            };
 
             recorder = new MediaRecorder(remoteStream,options);
 
