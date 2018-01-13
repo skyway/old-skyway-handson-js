@@ -66,7 +66,7 @@ $(function(){
             let chunks = [];
             let options = {
                 mimeType : 'video/webm; codecs=vp9'
-              };
+            };
 
             recorder = new MediaRecorder(remoteStream,options);
 
@@ -99,8 +99,14 @@ $(function(){
             audio: {deviceId: {exact: audioSource}},
             video: {deviceId: {exact: videoSource}}
         };
-        constraints.video.width = 640;
-        constraints.video.height = 480;
+        constraints.video.width = {
+            min: 320,
+            max: 320
+        };
+        constraints.video.height = {
+            min: 240,
+            max: 240        
+        };
 
         if(localStream){
             localStream = null;

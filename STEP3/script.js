@@ -8,8 +8,14 @@ $(function(){
         video: {},
         audio: true
     };
-    constraints.video.width = 320;
-    constraints.video.height = 240;
+    constraints.video.width = {
+        min: 320,
+        max: 320
+    };
+    constraints.video.height = {
+        min: 240,
+        max: 240        
+    };
 
     navigator.mediaDevices.getUserMedia(constraints)
         .then(function (stream) {
@@ -21,7 +27,7 @@ $(function(){
         });
 
     peer = new Peer({
-        key: '45c6a299-4a74-4d50-9eb3-173637ea9767',
+        key: 'APIKEY',
         debug: 3
     });
 
