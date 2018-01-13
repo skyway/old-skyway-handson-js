@@ -76,7 +76,7 @@ button {
     text-shadow: 1px 1px 2px #000;
     background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));
     border-radius: 5px;
-    width: 100px;
+    width: 120px;
 }
 
 button:hover {
