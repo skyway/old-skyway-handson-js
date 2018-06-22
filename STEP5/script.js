@@ -6,13 +6,13 @@ $(function(){
     let remoteStream = null;
     let recorder = null;
 
-    var audioSelect = $('#audioSource');
-    var videoSelect = $('#videoSource');
+    let audioSelect = $('#audioSource');
+    let videoSelect = $('#videoSource');
     navigator.mediaDevices.enumerateDevices()
         .then(function(deviceInfos) {
-            for (var i = 0; i !== deviceInfos.length; ++i) {
-                var deviceInfo = deviceInfos[i];
-                var option = $('<option>');
+            for (let i = 0; i !== deviceInfos.length; ++i) {
+                let deviceInfo = deviceInfos[i];
+                let option = $('<option>');
                 option.val(deviceInfo.deviceId);
                 if (deviceInfo.kind === 'audioinput') {
                     option.text(deviceInfo.label);
@@ -93,9 +93,9 @@ $(function(){
 
 
     function setupGetUserMedia() {
-        var audioSource = $('#audioSource').val();
-        var videoSource = $('#videoSource').val();
-        var constraints = {
+        let audioSource = $('#audioSource').val();
+        let videoSource = $('#videoSource').val();
+        let constraints = {
             audio: {deviceId: {exact: audioSource}},
             video: {deviceId: {exact: videoSource}}
         };
