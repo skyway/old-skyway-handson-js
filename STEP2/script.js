@@ -58,7 +58,6 @@ $(function(){
             removeVideo(call.peer);
             setupMakeCallUI();
         });
-
     }
 
     function addVideo(call,stream){

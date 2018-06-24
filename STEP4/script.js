@@ -3,9 +3,9 @@ $(function(){
     let localStream = null;
     let peer = null;
     let existingCall = null;
-
     let audioSelect = $('#audioSource');
     let videoSelect = $('#videoSource');
+
     navigator.mediaDevices.enumerateDevices()
         .then(function(deviceInfos) {
             for (let i = 0; i !== deviceInfos.length; ++i) {
@@ -115,7 +115,6 @@ $(function(){
             removeAllRemoteVideos();
             setupMakeCallUI();
         });
-
     }
 
     function addVideo(stream){

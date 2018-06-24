@@ -5,9 +5,9 @@ $(function(){
     let existingCall = null;
     let remoteStream = null;
     let recorder = null;
-
     let audioSelect = $('#audioSource');
     let videoSelect = $('#videoSource');
+    
     navigator.mediaDevices.enumerateDevices()
         .then(function(deviceInfos) {
             for (let i = 0; i !== deviceInfos.length; ++i) {
