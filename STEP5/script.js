@@ -7,7 +7,7 @@ $(function(){
     let recorder = null;
     let audioSelect = $('#audioSource');
     let videoSelect = $('#videoSource');
-    
+
     navigator.mediaDevices.enumerateDevices()
         .then(function(deviceInfos) {
             for (let i = 0; i !== deviceInfos.length; ++i) {
@@ -90,7 +90,6 @@ $(function(){
             $('#downloadlink').hide();
         }
     });
-
 
     function setupGetUserMedia() {
         let audioSource = $('#audioSource').val();
