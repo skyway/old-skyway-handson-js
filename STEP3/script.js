@@ -3,7 +3,6 @@ $(function(){
     let localStream = null;
     let peer = null;
     let existingCall = null;
-
     let constraints = {
         video: {},
         audio: true
@@ -74,7 +73,6 @@ $(function(){
             removeAllRemoteVideos();
             setupMakeCallUI();
         });
-
     }
 
     function addVideo(stream){
