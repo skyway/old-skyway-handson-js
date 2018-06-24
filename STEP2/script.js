@@ -55,14 +55,14 @@ $(function(){
         });
 
         call.on('close', function(){
-            removeVideo(call.peer);
+            removeVideo(call.remoteId);
             setupMakeCallUI();
         });
     }
 
     function addVideo(call,stream){
         const videoDom = $('<video autoplay>');
-        videoDom.attr('id',call.peer);
+        videoDom.attr('id',call.remoteId);
         videoDom.get(0).srcObject = stream;
         $('.videosContainer').append(videoDom);
     }
