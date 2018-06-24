@@ -44,7 +44,7 @@ $(function(){
         if (!roomName) {
             return;
         }
-        const　call = peer.joinRoom(roomName, {mode: 'sfu', stream: localStream});
+        const call = peer.joinRoom(roomName, {mode: 'sfu', stream: localStream});
         setupCallEventHandlers(call);
     });
 
