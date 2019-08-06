@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head lang="ja">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SkyWay Handson</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-</head>
-<body>
-<div class="videosContainer">
-    <video id="myStream" autoplay muted="true"></video>
-</div>
+    <head lang="ja">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>SkyWay Handson</title>
+        <link rel="stylesheet" href="../shared/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="js-videos-container" class="videos-container">
+                <video id="js-local-video" autoplay muted="true"></video>
+            </div>
+            <div class="controller-container">
+                <p>Your id: <span id="js-local-id">...</span></p>
+                <input type="text" placeholder="Join room..." id="js-room-id">
+                <button id="js-join-trigger">Join</button>
+                <button id="js-leave-trigger">Leave</button>
+                <pre class="messages" id="js-messages"></pre>
+                </div>
+            </div>
+        </div>
 
-<div class="myControllerContainer">
-    <p>Your id: <span id="my-id">...</span></p>
-    <form id="make-call">
-        <input type="text" placeholder="Join room..." id="join-room">
-        <button type="submit">Join</button>
-    </form>
-    <div id="end-call">
-        <p>Currently in room <span id="room-id">...</span></p>
-        <button>Leave</button>
-    </div>
-</div>
-
-</body>
+        <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+        <script type="text/javascript" src="../shared/key.js"></script>
+        <script type="text/javascript" src="./script.js"></script>
+    </body>
 </html>

@@ -1,14 +1,10 @@
-$(function(){
+(async function main() {
+    const localVideo = document.getElementById('js-local-video');
 
-    let localStream = null;
+    const localStream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+    });
 
-    navigator.mediaDevices.getUserMedia({video: true, audio: true})
-        .then(function (stream) {
-            $('#myStream').get(0).srcObject = stream;
-            localStream = stream;
-        }).catch(function (error) {
-            console.error('mediaDevice.getUserMedia() error:', error);
-            return;
-        });
-
-});
+    localVideo.srcObject = localStream;
+})();

@@ -1,103 +1,79 @@
-$(function(){
+const Peer = window.Peer;
 
-    let localStream = null;
-    let peer = null;
-    let existingCall = null;
-    let constraints = {
-        video: {},
-        audio: true
-    };
-    constraints.video.width = {
-        min: 320,
-        max: 320
-    };
-    constraints.video.height = {
-        min: 240,
-        max: 240        
-    };
+(async function main() {
+    const localVideo = document.getElementById('js-local-video');
+    const localId = document.getElementById('js-local-id');
+    const videosContainer = document.getElementById('js-videos-container');
+    const roomId = document.getElementById('js-room-id');
+    const messages = document.getElementById('js-messages');
+    const joinTrigger = document.getElementById('js-join-trigger');
+    const leaveTrigger = document.getElementById('js-leave-trigger');
 
-    navigator.mediaDevices.getUserMedia(constraints)
-        .then(function (stream) {
-            $('#myStream').get(0).srcObject = stream;
-            localStream = stream;
-        }).catch(function (error) {
-            console.error('mediaDevice.getUserMedia() error:', error);
-            return;
+    const localStream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+    });
+    localVideo.srcObject = localStream;
+
+    const peer = new Peer({
+        key: window.__SKYWAY_KEY__,
+        debug: 3,
+    });
+
+    peer.on('open', (id) => {
+        localId.textContent = id;
+    });
+
+    joinTrigger.addEventListener('click', () => {
+        const room = peer.joinRoom(roomId.value, {
+            mode: 'sfu',
+            stream: localStream,
         });
 
-    peer = new Peer({
-        key: 'APIKEY',
-        debug: 3
-    });
-
-    peer.on('open', function(){
-        $('#my-id').text(peer.id);
-    });
-
-    peer.on('error', function(err){
-        alert(err.message);
-    });
-
-    $('#make-call').submit(function(e){
-        e.preventDefault();
-        let roomName = $('#join-room').val();
-        if (!roomName) {
-            return;
-        }
-        const call = peer.joinRoom(roomName, {mode: 'sfu', stream: localStream});
-        setupCallEventHandlers(call);
-    });
-
-    $('#end-call').click(function(){
-        existingCall.close();
-    });
-
-    function setupCallEventHandlers(call){
-        if (existingCall) {
-            existingCall.close();
-        };
-
-        existingCall = call;
-        setupEndCallUI();
-        $('#room-id').text(call.name);
-
-        call.on('stream', function(stream){
-            addVideo(stream);
+        room.on('open', () => {
+            messages.textContent += `===You joined===\n`;
         });
 
-        call.on('peerLeave', function(peerId){
-            removeVideo(peerId);
+        room.on('peerJoin', peerId => {
+            messages.textContent += `===${peerId} joined===\n`;
         });
 
-        call.on('close', function(){
-            removeAllRemoteVideos();
-            setupMakeCallUI();
+        room.on('stream', async stream => {
+            const remoteVideo = document.createElement('video');
+            remoteVideo.srcObject = stream;
+            remoteVideo.playsInline = true;
+            remoteVideo.setAttribute('data-peer-id', stream.peerId);
+            videosContainer.append(remoteVideo);
+
+            await remoteVideo.play().catch(console.error);
         });
-    }
 
-    function addVideo(stream){
-        const videoDom = $('<video autoplay>');
-        videoDom.attr('id',stream.peerId);
-        videoDom.get(0).srcObject = stream;
-        $('.videosContainer').append(videoDom);
-    }
+        room.on('peerLeave', peerId => {
+            const remoteVideo = videosContainer.querySelector(`[data-peer-id="${peerId}"]`);
+            remoteVideo.srcObject.getTracks().forEach(track => {
+                track.stop();
+            });
+            remoteVideo.srcObject = null;
+            remoteVideo.remove();
 
-    function removeVideo(peerId){
-        $('#'+peerId).remove();
-    }
+            messages.textContent += `===${peerId} left===\n`;
+        });
 
-    function removeAllRemoteVideos(){
-        $('.videosContainer').empty();
-    }
+        room.once('close', () => {
+            messages.textContent += '===You left ===\n';
+            const remoteVideos = videosContainer.querySelectorAll('[data-peer-id]');
+            Array.from(remoteVideos)
+            .forEach(remoteVideo => {
+                remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+                remoteVideo.srcObject = null;
+                remoteVideo.remove();
+              });
+        });
 
-    function setupMakeCallUI(){
-        $('#make-call').show();
-        $('#end-call').hide();
-    }
-    
-    function setupEndCallUI() {
-        $('#make-call').hide();
-        $('#end-call').show();
-    }
+        leaveTrigger.addEventListener('click', () => {
+            room.close();
+        }, { once: true });
+    });
 
-});
+    peer.on('error', console.error);
+})();
