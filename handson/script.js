@@ -1,3 +1,2 @@
-$(function(){
-
-});
+(async function main() {
+})();
