@@ -1,0 +1,111 @@
+html {
+    background: #000 no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+video {
+    background: black;
+    float: left;
+}
+
+.videos-container {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    top: 0;
+}
+
+.videos-container video {
+    height: 100%;
+}
+
+.controller-container {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    padding-left: 20px;
+    color: white;
+}
+
+.controller-container .messages {
+    overflow: scroll;
+}
+
+.videos-container video:first-child:nth-last-child(1),
+.videos-container video:first-child:nth-last-child(1) ~ video {
+    width: 100%;
+}
+
+.videos-container video:first-child:nth-last-child(2),
+.videos-container video:first-child:nth-last-child(2) ~ video {
+    width: 50%;
+}
+
+.videos-container video:first-child:nth-last-child(3),
+.videos-container video:first-child:nth-last-child(3) ~ video {
+    width: 33.33333%;
+}
+
+.videos-container video:first-child:nth-last-child(4),
+.videos-container video:first-child:nth-last-child(4) ~ video {
+    width: 25%;
+}
+
+.videos-container video:first-child:nth-last-child(5),
+.videos-container video:first-child:nth-last-child(5) ~ video {
+    width: 20%;
+}
+
+.videos-container video:first-child:nth-last-child(6),
+.videos-container video:first-child:nth-last-child(6) ~ video {
+    width: 16.66667%;
+}
+
+.videos-container video:first-child:nth-last-child(7),
+.videos-container video:first-child:nth-last-child(7) ~ video {
+    width: 14.28571%;
+}
+
+.videos-container video:first-child:nth-last-child(8),
+.videos-container video:first-child:nth-last-child(8) ~ video {
+    width: 12.5%;
+}
+
+input[type=text]{
+    border-radius: 5px;
+    border:#a9a9a9 1px solid;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
+    width:40%;
+    font-size: 15px;
+    padding: 5px;
+}
+
+input[type=text]:focus {
+    border:solid 1px #20b2aa;
+}
+
+input[type=text], select {
+    outline: none;
+}
+
+button {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 20px;
+    color: #fff;
+    border-style: none;
+    text-shadow: 1px 1px 2px #000;
+    background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));
+    border-radius: 5px;
+    width: 120px;
+}
+
+button:hover {
+    /* 透明度を20%に指定 */
+    opacity: 0.8;
+}
