@@ -1,4 +1,10 @@
-# はじめに
+# WebRTC Platform SkyWay ハンズオン JS
+
+**これは旧SkyWayのリポジトリです。[新しいSkyWay](<https://skyway.ntt.com>)への移行をご検討ください。**
+
+**This is the old SkyWay repository.  Please consider migrating to the [new SkyWay](<https://skyway.ntt.com>).**
+
+---
 
 このリポジトリは[WebRTC Platform SkyWay ハンズオン SFU編](http://qiita.com/yusuke84/items/54dce88f9e896903e64f)のための教材です。
 詳しい内容は上記ドキュメントを御覧ください。
